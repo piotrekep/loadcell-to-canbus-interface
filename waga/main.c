@@ -25,7 +25,7 @@ ISR(INT0_vect );
 ISR(TIMER0_COMPA_vect );
 
 
-volatile CAN_msg tx_test;
+volatile CAN_msg tx_msg1;
 volatile CAN_msg tx_msg2;
 volatile uint32_t i=0;
 volatile uint8_t data_rdy=0;
@@ -34,19 +34,19 @@ int main(void)
 {
    	wdt_enable(WDTO_2S);
 	 
-   	tx_test.ident=0x250;
-   	tx_test.RTR=0;
-   	tx_test.DLC=8;
+   	tx_msg1.ident=0x250; //message 1 ID, supports only standard id's adding extended should be trivial
+   	tx_msg1.RTR=0;
+   	tx_msg1.DLC=8;
 	   
-	tx_msg2.ident=0x251;
+	tx_msg2.ident=0x251; //message 2 ID
 	tx_msg2.RTR=0;
 	tx_msg2.DLC=8;
-   //	tx_test.data[0]=0x00;
-
+  
+// can transmit interupt timer
 	TCCR0A |= (1<<WGM01);
 	TCCR0B |= (1<<CS02) | (0<<CS01) | (1<<CS00);
 	TIMSK0 |= (1<<OCIE0A); 
-	OCR0A=195;  
+	OCR0A=195; 
 	
 	EIMSK |= (1<<INT1);
 	//EIMSK = 0;
@@ -59,7 +59,7 @@ int main(void)
 	   
 	SPI_MasterInit();
    	CAN_reset();
-	   _delay_ms(10);
+	 _delay_ms(10);
 	//can init
 	CAN_setBaud20(2);
 	CAN_int_en(0x21);
@@ -68,7 +68,7 @@ int main(void)
 	
 		if(CAN_check_mode()==0)
 		{
-					
+					//todo: add error handling
 		}
 
 
@@ -103,10 +103,10 @@ int main(void)
 			d0=d0>>8;
 			// srednia=temp<<8;
 			// srednia=srednia>>8;
-			tx_test.data[0]=d0;
-			tx_test.data[1]=d0>>8;
-			tx_test.data[2]=d0>>16;
-			tx_test.data[3]=d0>>24;
+			tx_msg1.data[0]=d0;
+			tx_msg1.data[1]=d0>>8;
+			tx_msg1.data[2]=d0>>16;
+			tx_msg1.data[3]=d0>>24;
 					
 	 ADS1234_input_select(ADS1234_AIN2);
 	 while(((DATA_PORT & (1<<DATA_PIN))!=0));
@@ -114,10 +114,10 @@ int main(void)
 	 //srednia=temp;
 	 	 d1=d1<<8;
 	 	 d1=d1>>8;
-		 tx_test.data[4]=d1;
-		 tx_test.data[5]=d1>>8;
-		 tx_test.data[6]=d1>>16;
-		 tx_test.data[7]=d1>>24;
+		 tx_msg1.data[4]=d1;
+		 tx_msg1.data[5]=d1>>8;
+		 tx_msg1.data[6]=d1>>16;
+		 tx_msg1.data[7]=d1>>24;
 
 	 ADS1234_input_select(ADS1234_AIN3);
 	 while(((DATA_PORT & (1<<DATA_PIN))!=0));
@@ -202,7 +202,7 @@ ISR(TIMER0_COMPA_vect ) //10ms
 
 if((i>=10) & (data_rdy>0))
 {
-		CAN_TX_Write(tx_test,0);
+		CAN_TX_Write(tx_msg1,0);
 		CAN_RTS(0);
 		CAN_TX_Write(tx_msg2,1);
 		CAN_RTS(1);

@@ -15,7 +15,6 @@
 	  unsigned    RTR      :1;    /* Remote Transmission Request bit */
 	  unsigned    DLC      :4;    /* Data length code (bits 0...3) */
 	  uint8_t     data[8];        /* 8 data bytes */
-	  unsigned    crc      :16;   /* CRC */
   }CAN_msg;
   
   typedef struct{
@@ -23,7 +22,6 @@
 	  unsigned    RTR      :1;    /* Remote Transmission Request bit */
 	  unsigned    DLC      :4;    /* Data length code (bits 0...3) */
 	  uint8_t     data[8];        /* 8 data bytes */
-	  unsigned    crc      :16;   /* CRC */
   }CANB_msg;
     
 
