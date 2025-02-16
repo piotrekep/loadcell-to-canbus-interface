@@ -1,0 +1,45 @@
+CAN_drv/can_drv.d CAN_drv/can_drv.o: ../CAN_drv/can_drv.c \
+ ../CAN_drv/../CAN_drv/can_drv.h \
+ f:\programy\atmel\studio\7.0\toolchain\avr8\avr8-gnu-toolchain\avr\include\inttypes.h \
+ f:\programy\atmel\studio\7.0\toolchain\avr8\avr8-gnu-toolchain\lib\gcc\avr\5.4.0\include\stdint.h \
+ f:\programy\atmel\studio\7.0\toolchain\avr8\avr8-gnu-toolchain\avr\include\stdint.h \
+ ../CAN_drv/../CAN_drv/../types/tdef.h ../CAN_drv/../types/tdef.h \
+ ../CAN_drv/../SPI_drv/SPIm328.h \
+ f:\programy\atmel\studio\7.0\toolchain\avr8\avr8-gnu-toolchain\avr\include\avr\io.h \
+ f:\programy\atmel\studio\7.0\toolchain\avr8\avr8-gnu-toolchain\avr\include\avr\sfr_defs.h \
+ F:\Programy\Atmel\Studio\7.0\Packs\atmel\ATmega_DFP\1.2.132\include/avr/iom328p.h \
+ f:\programy\atmel\studio\7.0\toolchain\avr8\avr8-gnu-toolchain\avr\include\avr\portpins.h \
+ f:\programy\atmel\studio\7.0\toolchain\avr8\avr8-gnu-toolchain\avr\include\avr\common.h \
+ f:\programy\atmel\studio\7.0\toolchain\avr8\avr8-gnu-toolchain\avr\include\avr\version.h \
+ f:\programy\atmel\studio\7.0\toolchain\avr8\avr8-gnu-toolchain\avr\include\avr\fuse.h \
+ f:\programy\atmel\studio\7.0\toolchain\avr8\avr8-gnu-toolchain\avr\include\avr\lock.h
+
+../CAN_drv/../CAN_drv/can_drv.h:
+
+f:\programy\atmel\studio\7.0\toolchain\avr8\avr8-gnu-toolchain\avr\include\inttypes.h:
+
+f:\programy\atmel\studio\7.0\toolchain\avr8\avr8-gnu-toolchain\lib\gcc\avr\5.4.0\include\stdint.h:
+
+f:\programy\atmel\studio\7.0\toolchain\avr8\avr8-gnu-toolchain\avr\include\stdint.h:
+
+../CAN_drv/../CAN_drv/../types/tdef.h:
+
+../CAN_drv/../types/tdef.h:
+
+../CAN_drv/../SPI_drv/SPIm328.h:
+
+f:\programy\atmel\studio\7.0\toolchain\avr8\avr8-gnu-toolchain\avr\include\avr\io.h:
+
+f:\programy\atmel\studio\7.0\toolchain\avr8\avr8-gnu-toolchain\avr\include\avr\sfr_defs.h:
+
+F:\Programy\Atmel\Studio\7.0\Packs\atmel\ATmega_DFP\1.2.132\include/avr/iom328p.h:
+
+f:\programy\atmel\studio\7.0\toolchain\avr8\avr8-gnu-toolchain\avr\include\avr\portpins.h:
+
+f:\programy\atmel\studio\7.0\toolchain\avr8\avr8-gnu-toolchain\avr\include\avr\common.h:
+
+f:\programy\atmel\studio\7.0\toolchain\avr8\avr8-gnu-toolchain\avr\include\avr\version.h:
+
+f:\programy\atmel\studio\7.0\toolchain\avr8\avr8-gnu-toolchain\avr\include\avr\fuse.h:
+
+f:\programy\atmel\studio\7.0\toolchain\avr8\avr8-gnu-toolchain\avr\include\avr\lock.h:
