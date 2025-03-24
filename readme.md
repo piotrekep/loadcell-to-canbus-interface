@@ -1,4 +1,3 @@
-
 # Digital Scale with CAN Bus
 
 This repository contains firmware for a digital scale system based on the ATmega328 microcontroller. Developed over 10 years ago, this project reads analog data via an ADS1234 ADC and transmits measurements over a CAN bus using an MCP2515 controller through an SPI interface.
@@ -6,7 +5,7 @@ This repository contains firmware for a digital scale system based on the ATmega
 ## Overview
 
 The firmware implements a digital weighing system that:
- 
+
 - **Acquires Data**: Reads four channels of analog data from an ADS1234 ADC.
 - **CAN Bus Communication**: Transmits the acquired data in two separate CAN messages (IDs 0x250 and 0x251).
 - **SPI Interface**: Uses custom SPI routines to communicate with both the CAN controller and the ADS1234.
@@ -19,7 +18,7 @@ The firmware implements a digital weighing system that:
 - **Clock Speed**: 20 MHz (FOSC = 20,000,000)
 
 ### ADS1234 ADC
-- **Data Acquisition**: 
+- **Data Acquisition**:
   - **Input Selection**: Controlled via two pins on PORTC (A0 on PC1 and A1 on PC0).
   - **Gain Control**: Connected to PORTD (GAIN0 on PD1 and GAIN1 on PD2).
   - **Speed Control**: Connected to PC5.
@@ -94,9 +93,18 @@ avrdude -c usbtiny -p m328p -U flash:w:digital_scale.hex:i
 - **CAN Bus Baud Rate**: Configured using the `CAN_setBaud20` function. Baud rate options include 125, 250, and 500 kbps.
 - **Watchdog Timer**: Enabled with a 2-second timeout to help ensure robust operation.
 
+## PCB and Schematics
+
+PCB layout and schematic files are located in the `wagapcb` directory. Multiple revisions exist:
+
+- **waga**: Original layout files (`waga_can.brd`, `waga_can.sch`, and associated Gerber outputs).
+- **waga v0.1**: First revision of the board, containing minor tweaks to layout and connectivity.
+- **waga v0.2**: Second revision with updates for component placement and routing improvements.
+- **waga v0.2stm**: A variant of the second revision intended for further prototyping.
+
+Each folder contains EAGLE project files (`.brd`, `.sch`) and Gerber files (`.GBL`, `.GBO`, `.GTL`, etc.) for manufacturing. Check the `.TXT` and `.dri` files for drill info and the manufacturing process details.
+
 ## Notes
 
 - This project is a legacy codebase and may require updates for modern toolchains or hardware revisions.
 - Detailed configuration settings (such as ADC channel selection and CAN bus setup) can be found within the source code files.
-
-
