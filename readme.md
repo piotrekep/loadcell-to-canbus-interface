@@ -102,7 +102,7 @@ PCB layout and schematic files are located in the `wagapcb` directory. Multiple 
 - **waga v0.2**: Second revision with updates for component placement and routing improvements.
 - **waga v0.2stm**: A variant of the second revision intended for further prototyping.
 
-Each folder contains EAGLE project files (`.brd`, `.sch`) and Gerber files (`.GBL`, `.GBO`, `.GTL`, etc.) for manufacturing. Check the `.TXT` and `.dri` files for drill info and the manufacturing process details.
+Each folder contains EAGLE project files (`.brd`, `.sch`) and Gerber files (`.GBL`, `.GBO`, `.GTL`, etc.) for manufacturing. 
 
 ## Notes
 
